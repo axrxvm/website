@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Particle Animation : Aarav Labs</title>
+	<style>
+		body {
+    margin: 0;
+    height: 100vh;
+    user-select: none;
+    -webkit-user-select : none;
+    position: fixed;
+}
+</style>
+</head>
+<body>
+<canvas id="cvs"></canvas>
+<script>
+alert ("Particle Animation - Aarav Labs")
+let ctx,
+    fps,
+    asteriods = [],
+    W = innerWidth,
+    H = innerHeight,
+    perspective = W * .3,
+    projectionX = W * .5,
+    projectionY = H * .5,
+    lastTime = 0;
+
+const project = object => ({
+    x: (object.x * object.scale) + projectionX,
+    y: (object.y * object.scale) + projectionY,
+    alpha: Math.abs((object.z) / W)
+});
+
+const minMax = (min, max) => Math.random() * (max - min+1) + min;
+
+class Asteriod {
+    constructor(x, y, z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.radius = 4;
+        this.speed = minMax(10, 20);
+
+        this.projectedX = null;
+        this.projectedY = null;
+        this.scale = null;
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.fillStyle = "lightskyblue";
+        ctx.arc(this.projectedX - this.radius, this.projectedY - this.radius, 
+           Math.abs(this.radius * this.scale * 2), 0, 2*Math.PI);
+        ctx.fill();
+    }
+
+    update() {
+        this.z -= this.speed;
+        this.scale = perspective / (perspective + this.z);
+        this.projectedX = project(this).x;
+        this.projectedY = project(this).y;
+        ctx.save();
+        //ctx.globalAlpha = project(this).alpha;
+        this.draw();
+        ctx.restore();
+
+        if(this.projectedX - (this.radius * 2 *this.scale) + this.speed <= 0 || 
+            this.projectedX + (this.radius * 2 *this.scale) + this.speed >= W) 
+                asteriods.splice(asteriods.indexOf(this), 1);
+        else if(this.projectedY - (this.radius * 2 *this.scale) + this.speed <= 0 || 
+                this.projectedY + (this.radius * 2 *this.scale) + this.speed >= H) 
+                    asteriods.splice(asteriods.indexOf(this), 1);
+    }
+
+    static createNew() {
+        for(let i=0; i < minMax(30, 50); i++) {
+            let x = (Math.random() - .5) * W;
+            let y = (Math.random() - .5) * H;
+            let z = W + 500;
+            asteriods.push(new Asteriod(x, y, z));        
+        }
+    }
+}
+
+Asteriod.createNew();
+
+const update = () => {
+    asteriods.sort((a, b) => a.scale - b.scale);
+    asteriods.forEach(asteriod => asteriod.update());
+    ctx.fillStyle = "red";
+    ctx.fillText(fps, W - 50, 50);
+}
+
+
+const animate = currentTime => {
+    let timeStart = performance.now();
+    ctx.fillStyle = "rgba(0, 0, 0, .6)";
+    ctx.fillRect(0, 0, W, H);
+    update();
+    let timeEnd = performance.now();
+    fps = `fps: ${~~(timeEnd - timeStart)}`;
+    if(currentTime < lastTime) {
+        requestAnimationFrame(animate);
+        return;
+    } else {
+        lastTime = currentTime + 500;
+        Asteriod.createNew();
+        requestAnimationFrame(animate);
+    }
+    
+}
+
+const init = () => {
+    ctx = document.querySelector("#cvs").getContext("2d");
+    W = ctx.canvas.width = innerWidth;
+    H = ctx.canvas.height = innerHeight;
+
+    requestAnimationFrame(animate);
+}
+
+window.addEventListener("load", init);
+</script>
+</body>
+</html>
