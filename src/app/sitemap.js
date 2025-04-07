@@ -7,7 +7,7 @@ export default () => {
   }));
 
   const routes = ["", "/about", "/projects", "/blogs"].map((route) => ({
-    url: `https://itzaarav.netlify.app/${route}`,
+    url: `https://itzaarav.netlify.app${route}`,
     lastModified: new Date().toISOString().split("T")[0],
   }));
 
