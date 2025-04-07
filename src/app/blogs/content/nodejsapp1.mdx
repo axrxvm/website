@@ -1,0 +1,211 @@
+---
+title: "Build Your First Node.js App – Step-by-Step Guide"
+publishedAt: "2025-04-07"
+summary: "Wanna build something cool with Node.js but don’t know where to start? Here’s a complete chaos-free (kinda) guide to building your first Node.js app from scratch."
+readTime: "5 mins"
+featured: true
+icon: "/images/profile.jpg"
+---
+
+## You said you wanna build a Node.js app?
+
+Perfect. Grab a coffee or chai ☕ and let’s get you started with your **first real Node.js application**.  
+This ain’t no boring textbook tutorial — I’ll walk you through **step-by-chaotic-step** to build a small but working server.
+
+We’ll be making a tiny Notes API — nothing fancy, but enough to flex on your dev friends 💪
+
+---
+
+## Step 1: Initialize the Project 📦
+
+First, make a new folder and open it in your terminal:
+
+```bash
+mkdir notes-api
+cd notes-api
+npm init -y
+```
+
+Boom — you just created a Node.js project.
+
+---
+
+## Step 2: Create your main file 🧠
+
+Make a file called `index.js`:
+
+```bash
+touch index.js
+```
+
+Open it up and add this:
+
+```js
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.setHeader("Content-Type", "application/json");
+
+  if (req.url === "/notes" && req.method === "GET") {
+    res.end(JSON.stringify([{ id: 1, text: "Learn Node.js" }]));
+  } else {
+    res.statusCode = 404;
+    res.end(JSON.stringify({ message: "Not Found" }));
+  }
+});
+
+server.listen(3000, () => {
+  console.log("Server running at http://localhost:3000");
+});
+```
+
+Okay, okay. Breathe. You just built a server with Node’s built-in `http` module — *no frameworks*. You’re raw like that 🔥
+
+---
+
+## Step 3: Run it like a boss 👑
+
+In your terminal, run:
+
+```bash
+node index.js
+```
+
+Open your browser and go to [http://localhost:3000/notes](http://localhost:3000/notes)  
+You should see this:
+
+```json
+[{ "id": 1, "text": "Learn Node.js" }]
+```
+
+Ayoo it’s working! 🎉
+
+---
+
+## Step 4: Add POST request support 📨
+
+Let’s allow users to add new notes.
+
+Update your `index.js` like this:
+
+```js
+let notes = [{ id: 1, text: "Learn Node.js" }];
+
+const server = http.createServer((req, res) => {
+  res.setHeader("Content-Type", "application/json");
+
+  if (req.url === "/notes" && req.method === "GET") {
+    res.end(JSON.stringify(notes));
+  } else if (req.url === "/notes" && req.method === "POST") {
+    let body = "";
+
+    req.on("data", (chunk) => {
+      body += chunk.toString();
+    });
+
+    req.on("end", () => {
+      const newNote = JSON.parse(body);
+      newNote.id = notes.length + 1;
+      notes.push(newNote);
+
+      res.statusCode = 201;
+      res.end(JSON.stringify(newNote));
+    });
+  } else {
+    res.statusCode = 404;
+    res.end(JSON.stringify({ message: "Not Found" }));
+  }
+});
+```
+
+Now use something like **Postman** or **curl** to send a `POST` request:
+
+```bash
+curl -X POST http://localhost:3000/notes \
+-H "Content-Type: application/json" \
+-d '{"text": "Learn Express next"}'
+```
+
+And bam — you’ve got a POST API now. You’re officially dangerous 😈
+
+---
+
+## Step 5: Add nodemon for dev speed ⚡
+
+Install nodemon:
+
+```bash
+npm install --save-dev nodemon
+```
+
+Then in `package.json`, update scripts:
+
+```json
+"scripts": {
+  "dev": "nodemon index.js"
+}
+```
+
+Now run:
+
+```bash
+npm run dev
+```
+
+Your server auto-restarts on changes. Sweet.
+
+---
+
+## Step 6: (Optional but cool) Add CORS support 🛡️
+
+If you're connecting from a frontend, you’ll probs need CORS:
+
+```bash
+npm install cors
+```
+
+(But wait — you're not using Express yet? Oh right. So skip this for now or move to Express when you’re ready.)
+
+---
+
+## Final folder structure 🗂️
+
+```
+notes-api/
+├── index.js
+├── package.json
+└── node_modules/
+```
+
+Simple. Minimal. Noice.
+
+---
+
+## What You Just Did 🎯
+
+- Set up a Node.js project ✅
+- Built a working HTTP server ✅
+- Made GET and POST endpoints ✅
+- Learned to handle JSON manually ✅
+- Became slightly cooler than 10 mins ago ✅
+
+---
+
+## Where to Go From Here 🚀
+
+- Add file-based storage with `fs` module
+- Use Express.js to simplify your code
+- Hook it up with a frontend (React/Vue)
+- Deploy it to a platform like Railway, Vercel, or Render
+
+And yeah — keep playing, keep breaking stuff, and keep learning. You got this.
+
+---
+
+## Peace Out 👋
+
+If this guide helped, go build something wild.  
+If it broke your brain, good. That means you’re learning 😌  
+Ping me if you need more chaos-infused tutorials. I gotchu 💯
+
+*Stay mad. Stay building. Node gang forever.* 🔥
