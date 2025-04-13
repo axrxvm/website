@@ -1,0 +1,153 @@
+---
+title: "AHFC — The Argon2 Hybrid Fortress for File Encryption"
+publishedAt: "2025-04-08"
+summary: "Introducing AHFC: a powerful, multi-mode file encryption tool built with Node.js and packed with compression, AES-GCM, HMAC, and Argon2. Whether you're securing secrets or flexing your CLI skills, this fortress is ready."
+readTime: "6 mins"
+featured: true
+icon: "/images/profile.jpg"
+---
+
+## What even is AHFC? 🔐
+
+AHFC stands for **Aarav HyperFortress Cipher**, and it's exactly what it sounds like:
+
+> A hybrid file encryption fortress written in Node.js — powerful, secure, and totally open source.
+
+It’s live on GitHub 👉 [github.com/axrxvm/ahfc](https://github.com/axrxvm/ahfc)  
+And installable from npm 👉 [npmjs.com/package/ahfc](https://www.npmjs.com/package/ahfc)
+
+This isn't just another "hello world crypto project".  
+**AHFC** is built to **actually protect** your files using a clean combo of:
+
+- 🔐 **AES-256-GCM** for authenticated encryption  
+- 🔁 **zlib compression** for reducing file size pre-encryption  
+- 🧂 **Argon2** for password hashing (the king of password hashing)  
+- 🧪 **HMAC** for integrity checking in normal mode  
+- 💪 Multiple encryption modes to suit different needs
+
+---
+
+## Why did I build it?
+
+Because most file encryptors either suck, overcomplicate things, or just don’t feel satisfying to use.
+
+So I built AHFC for:
+
+- Developers who want full control over their encryption workflow
+- Students or researchers looking to learn real-world cryptography basics
+- People who love CLIs that actually *feel good* to use
+- Me. I built this for me. And now you get to use it too 💀
+
+---
+
+## How it works ⚙️
+
+AHFC comes with **three modes** — because one mode is for amateurs:
+
+### 1. **lite**
+- Fastest mode
+- Compress + AES-GCM + Argon2 key derivation
+- Great for speed and casual use
+
+### 2. **normal**
+- Compression + AES-GCM + HMAC + Argon2
+- Adds integrity check (HMAC) for detecting tampering
+- Balanced performance and security
+
+### 3. **beast**
+- Compression + Dual-pass AES-GCM + HMAC + Argon2 + Recursive pass
+- Slower but way more secure (suitable for long-term archival or ultra-sensitive data)
+
+Yup. That’s some real crypto nerd stuff right there. You can actually **feel the layers** protecting your file.
+
+---
+
+## How to install & use 📦
+
+```bash
+npm install -g ahfc
+```
+
+Now you can use it from anywhere as a CLI tool.
+
+### Encrypt a file:
+```bash
+ahfc encrypt file.txt --mode=normal
+```
+
+### Decrypt:
+```bash
+ahfc decrypt file.txt.ahfc
+```
+
+### Choose a mode:
+```bash
+ahfc encrypt secrets.zip --mode=beast
+```
+
+It will prompt for a password. That password is securely converted into a key using **Argon2id**.
+
+---
+
+## Security Breakdown 🔍
+
+Let’s get nerdy for a sec:
+
+- **Argon2id**: Defends against GPU/ASIC brute-force attacks with memory-hard functions
+- **AES-256-GCM**: Authenticated symmetric encryption. Fast, strong, battle-tested.
+- **zlib**: Compresses before encryption to reduce redundancy and speed things up
+- **HMAC-SHA256**: Used in `normal` and `beast` modes to validate file integrity
+- **Random salt & nonce**: Every run is unique and non-reusable by default
+
+Encryption without integrity is dangerous.  
+AHFC handles *both* — encryption + verification — properly.
+
+---
+
+## Real-World Use Cases 🧠
+
+- Encrypting your `.env` or config files before pushing to GitHub (yes, people do that 🤦)
+- Secure backups before uploading to cloud
+- Sharing encrypted data across team/devices
+- Learning how crypto actually works in the real world (not in "crypto bro" whitepapers)
+
+---
+
+## Open Source & Contributions 🛠️
+
+Repo: [https://github.com/axrxvm/ahfc](https://github.com/axrxvm/ahfc)
+
+Want to contribute?
+- PRs welcome
+- Looking to add streaming support
+- Planning a GUI wrapper (eventually)
+- Python port coming soon 👀
+
+---
+
+## What’s Next? 🚀
+
+Here’s what I’m thinking:
+- ✅ Node CLI (done)
+- 🧪 Programmatic API (done)
+- 🛜 Making Lite and Normal modes better (not XOR based which sucks)
+- 📖 Full documentation with examples
+
+If you wanna help or fork the idea — go for it. Just don’t break the beast mode 😤
+
+---
+
+## Final Thoughts 💭
+
+AHFC isn’t just a tool — it’s a project I built to learn, explore, and secure my stuff while having fun.  
+And now it's something **you can use, improve, and build on** too.
+
+No bloat. No BS. Just strong crypto, clean code, and pure CLI vibes.
+
+> Try it out.  
+> Hack it.  
+> Break it and send a PR.  
+> Or just encrypt your weird text files like a true fortress lord.
+
+Stay encrypted. Stay chaotic.  
+Peace ✌️
