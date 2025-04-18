@@ -96,6 +96,29 @@ export const PROJECTS = [
     image: "/projects/achat.png",
     video: "",
   },
+  {
+    title: "Synkros",
+    href: "https://synkross.alwaysdata.net/",
+    dates: "",
+    active: true,
+    description:
+      "Share your files with ease. No bullshit. No ads. No tracking. Just files. Synkros is a file sharing service that allows you to upload and share files with others. It is fast, secure, and easy to use.",
+    technologies: ["Node.js", "Express.js", "EJS", "multer", "MongoDB"],
+    links: [
+      {
+        type: "Website",
+        href: "https://synkross.alwaysdata.net/",
+        icon: <Icons.globe className="h-3 w-3" />,
+      },
+      {
+        type: "Invite",
+        href: "#",
+        icon: <Icons.email className="h-3 w-3" />,
+      },
+    ],
+    image: "/projects/synkros.png",
+    video: "",
+  },
 ];
 
 export const FREELANCE_PROJECTS = [
