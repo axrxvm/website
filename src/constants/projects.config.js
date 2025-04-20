@@ -3,29 +3,6 @@ import { ExternalLink, Link, ArchiveIcon } from "lucide-react";
 
 export const PROJECTS = [
   {
-    title: "Giva Bot",
-    href: "https://givabot.netlify.app/",
-    dates: "2022",
-    active: false,
-    description:
-      "A all-in-one feature packed multi-purpose bot with over 150+ commands in 16+ different categories including moderation,fun,utility,logging,verification and more",
-    technologies: ["Node.js", "Javascript", "Discord.js", "MongoDB"],
-    links: [
-      {
-        type: "Website",
-        href: "https://givabot.netlify.app/",
-        icon: <Icons.globe className="h-3 w-3" />,
-      },
-      {
-        type: "Invite",
-        href: "https://dsc.gg/invite-givabot",
-        icon: <Icons.email className="h-3 w-3" />,
-      },
-    ],
-    image: "/projects/giva_bot.png",
-    video: "",
-  },
-  {
     title: "AHFC",
     href: "https://npmjs.com/package/ahfc",
     dates: "March 2025 - Present",
@@ -43,6 +20,11 @@ export const PROJECTS = [
         type: "Source",
         href: "https://github.com/axrxvm/ahfc",
         icon: <Icons.github className="h-3 w-3" />,
+      },
+      {
+        type: "Discord",
+        href: "https://discord.gg/7MQczhh2pS",
+        icon: <Icons.discord className="h-3 w-3" />,
       },
     ],
     image: "/projects/ahfc.png",
@@ -100,7 +82,7 @@ export const PROJECTS = [
     title: "Synkros",
     href: "https://synkross.alwaysdata.net/",
     dates: "",
-    active: true,
+    active: false,
     description:
       "Share your files with ease. No bullshit. No ads. No tracking. Just files. Synkros is a file sharing service that allows you to upload and share files with others. It is fast, secure, and easy to use.",
     technologies: ["Node.js", "Express.js", "EJS", "multer", "MongoDB"],
@@ -111,12 +93,53 @@ export const PROJECTS = [
         icon: <Icons.globe className="h-3 w-3" />,
       },
       {
-        type: "Invite",
-        href: "#",
-        icon: <Icons.email className="h-3 w-3" />,
+        type: "Github",
+        href: "https://github.com/axrxvm/synkros/",
+        icon: <Icons.github className="h-3 w-3" />,
       },
     ],
     image: "/projects/synkros.png",
+    video: "",
+  },
+  {
+    title: "Giva Bot",
+    href: "https://givabot.netlify.app/",
+    dates: "2022",
+    active: false,
+    description:
+      "A all-in-one feature packed multi-purpose bot with over 150+ commands in 16+ different categories including moderation,fun,utility,logging,verification and more",
+    technologies: ["Node.js", "Javascript", "Discord.js", "MongoDB"],
+    links: [
+      {
+        type: "Website",
+        href: "https://givabot.netlify.app/",
+        icon: <Icons.globe className="h-3 w-3" />,
+      },
+      {
+        type: "Invite",
+        href: "https://dsc.gg/invite-givabot",
+        icon: <Icons.email className="h-3 w-3" />,
+      },
+    ],
+    image: "/projects/giva_bot.png",
+    video: "",
+  },
+  {
+    title: "aOS",
+    href: "https://discord.gg/7MQczhh2pS",
+    dates: "March 2025 - Present",
+    active: true,
+    description:
+      "An Operating System build from scratch.",
+    technologies: ["C", "C++", "Assembly", "x86_64", "NASM", "QEMU", ],
+    links: [
+      {
+        type: "Discord",
+        href: "https://discord.gg/7MQczhh2pS",
+        icon: <Icons.discord className="h-3 w-3" />,
+      },
+    ],
+    image: "/projects/aOS.png",
     video: "",
   },
 ];
