@@ -21,11 +21,6 @@ export const PROJECTS = [
         href: "https://github.com/axrxvm/ahfc",
         icon: <Icons.github className="h-3 w-3" />,
       },
-      {
-        type: "Discord",
-        href: "https://discord.gg/7MQczhh2pS",
-        icon: <Icons.discord className="h-3 w-3" />,
-      },
     ],
     image: "/projects/ahfc.png",
     video: "",
