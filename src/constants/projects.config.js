@@ -125,20 +125,19 @@ export const PROJECTS = [
     dates: "March 2025 - Present",
     active: true,
     description:
-      "An Operating System build from scratch.",
+      "An Operating System build from scratch. Coming Soon!",
     technologies: ["C", "C++", "Assembly", "x86_64", "NASM", "QEMU", ],
     links: [
       {
         type: "Discord",
         href: "https://discord.gg/7MQczhh2pS",
-        icon: <Icons.discord className="h-3 w-3" />,
+        icon: <Icons.email className="h-3 w-3" />,
       },
     ],
     image: "/projects/aOS.png",
     video: "",
   },
 ];
-
 export const FREELANCE_PROJECTS = [
   {
     title: ".",

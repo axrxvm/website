@@ -1,5 +1,5 @@
 # Official Portfolio of Aarav Mehta
-## Copyright (c) 2024 Aarav Mehta 
+## Copyright (c) 2025 Aarav Mehta 
 ### Licenced under GNUv2 License
 #### Hosted in these domains :-
 ##### [www.aaravm.me](https://www.aaravm.me/)
