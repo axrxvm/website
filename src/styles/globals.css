@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global variables */
+:root {
+  --primary: #8c58f5;
+
+  --foreground: #595959;
+  --foreground-hover: #404040;
+
+  --background: #f5f5f5;
+  --background-hover: #ededed;
+
+  --border: #dbdbdb;
+
+  --skeleton: 168, 168, 168;
+}
+
+.dark {
+  --foreground: #8c8c8c;
+  --foreground-hover: #a6a6a6;
+
+  --background: #1a1a1a;
+  --background-hover: #212121;
+
+  --border: #333333;
+
+  --skeleton: 94, 94, 94;
+}
+
+/* Global element styling */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* <html> and <body> styling */
+html,
+body {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  /* border-radius: 6px; */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary);
+}
+
+/* Landing container text animation */
+.landing-container-animation {
+  position: relative;
+  animation: slideIn 2s forwards;
+}
+
+.landing-container-animation-first {
+  background: linear-gradient(
+      rgba(140, 88, 245, 0.25),
+      rgba(140, 88, 245, 0.25)
+    )
+    bottom left/0% 100%;
+  background-repeat: no-repeat;
+  animation-delay: 0.5s;
+}
+
+.landing-container-animation-second {
+  background: linear-gradient(
+      rgba(245, 166, 88, 0.25),
+      rgba(245, 166, 88, 0.25)
+    )
+    bottom left/0% 100%;
+  background-repeat: no-repeat;
+  animation-delay: 1.5s;
+}
+
+/* Skeleton loading animation */
+.skeleton {
+  background: linear-gradient(
+    to right,
+    rgba(var(--skeleton), 0.5) 25%,
+    rgba(var(--skeleton), 1) 50%,
+    rgba(var(--skeleton), 0.5) 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+/* Keyframes */
+@keyframes slideIn {
+  100% {
+    background-size: 100% 100%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -800px 0;
+  }
+  100% {
+    background-position: 800px 0;
+  }
+}
