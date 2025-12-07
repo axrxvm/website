@@ -55,18 +55,18 @@ const Tools: FC = () => {
           Languages
         </p>
         <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-          <Tool name="JavaScript" icon={<SiJavascript />} />
-          <Tool name="TypeScript" icon={<SiTypescript />} />
-          <Tool name="Python" icon={<SiPython />} />
-          <Tool name="Java" icon={<FaJava />} />
-          <Tool name="C++" icon={<SiCplusplus />} />
-          <Tool name="C#" icon={<TbBrandCSharp />} />
-          <Tool name="Go" icon={<SiGo />} />
-          <Tool name="Rust" icon={<SiRust />} />
-          <Tool name="PHP" icon={<SiPhp />} />
-          <Tool name="HTML" icon={<SiHtml5 />} />
-          <Tool name="CSS" icon={<SiCss3 />} />
-          <Tool name="Bash" icon={<SiGnubash />} />
+          <Tool name="JavaScript" icon={<SiJavascript />} description="Scripting Language" />
+          <Tool name="TypeScript" icon={<SiTypescript />} description="Typed JavaScript" />
+          <Tool name="Python" icon={<SiPython />} description="General Purpose" />
+          <Tool name="Java" icon={<FaJava />} description="Enterprise & Android" />
+          <Tool name="C++" icon={<SiCplusplus />} description="Systems Programming" />
+          <Tool name="C#" icon={<TbBrandCSharp />} description=".NET Framework" />
+          <Tool name="Go" icon={<SiGo />} description="Concurrent Programming" />
+          <Tool name="Rust" icon={<SiRust />} description="Memory Safe" />
+          <Tool name="PHP" icon={<SiPhp />} description="Server-side Scripting" />
+          <Tool name="HTML" icon={<SiHtml5 />} description="Markup Language" />
+          <Tool name="CSS" icon={<SiCss3 />} description="Styling" />
+          <Tool name="Bash" icon={<SiGnubash />} description="Shell Scripting" />
         </div>
       </div>
 
@@ -76,13 +76,13 @@ const Tools: FC = () => {
           Frontend
         </p>
         <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-          <Tool name="React" icon={<SiReact />} />
-          <Tool name="Next.js" icon={<SiNextdotjs />} />
-          <Tool name="Vue.js" icon={<SiVuedotjs />} />
-          <Tool name="Angular" icon={<SiAngular />} />
-          <Tool name="TailwindCSS" icon={<SiTailwindcss />} />
-          <Tool name="Bootstrap" icon={<SiBootstrap />} />
-          <Tool name="Material UI" icon={<SiMui />} />
+          <Tool name="React" icon={<SiReact />} description="UI Library" />
+          <Tool name="Next.js" icon={<SiNextdotjs />} description="React Framework" />
+          <Tool name="Vue.js" icon={<SiVuedotjs />} description="Progressive Framework" />
+          <Tool name="Angular" icon={<SiAngular />} description="Full Framework" />
+          <Tool name="TailwindCSS" icon={<SiTailwindcss />} description="Utility-first CSS" />
+          <Tool name="Bootstrap" icon={<SiBootstrap />} description="CSS Framework" />
+          <Tool name="Material UI" icon={<SiMui />} description="React Components" />
           <Tool name="shadcn/ui" icon={<SiReact />} description="Component Library" />
           <Tool name="Framer Motion" icon={<SiFramer />} description="Animation" />
         </div>
@@ -94,9 +94,9 @@ const Tools: FC = () => {
           Backend
         </p>
         <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-          <Tool name="Node.js" icon={<SiNodedotjs />} />
-          <Tool name="Express.js" icon={<SiExpress />} />
-          <Tool name="FastAPI" icon={<SiFastapi />} />
+          <Tool name="Node.js" icon={<SiNodedotjs />} description="JavaScript Runtime" />
+          <Tool name="Express.js" icon={<SiExpress />} description="Web Framework" />
+          <Tool name="FastAPI" icon={<SiFastapi />} description="Python API Framework" />
         </div>
       </div>
 
@@ -106,7 +106,7 @@ const Tools: FC = () => {
           Mobile
         </p>
         <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-          <Tool name="React Native" icon={<SiReact />} />
+          <Tool name="React Native" icon={<SiReact />} description="Cross-platform" />
           <Tool name="Java" icon={<FaJava />} description="Android" />
         </div>
       </div>
@@ -117,11 +117,11 @@ const Tools: FC = () => {
           Databases
         </p>
         <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-          <Tool name="MongoDB" icon={<SiMongodb />} />
-          <Tool name="PostgreSQL" icon={<SiPostgresql />} />
-          <Tool name="MySQL" icon={<SiMysql />} />
-          <Tool name="Redis" icon={<SiRedis />} />
-          <Tool name="Firebase" icon={<SiFirebase />} />
+          <Tool name="MongoDB" icon={<SiMongodb />} description="NoSQL Database" />
+          <Tool name="PostgreSQL" icon={<SiPostgresql />} description="Relational Database" />
+          <Tool name="MySQL" icon={<SiMysql />} description="Relational Database" />
+          <Tool name="Redis" icon={<SiRedis />} description="In-memory Cache" />
+          <Tool name="Firebase" icon={<SiFirebase />} description="Backend Platform" />
         </div>
       </div>
 
