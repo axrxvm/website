@@ -19,8 +19,8 @@ const Home: FC = () => {
           <Hero />
           <Projects />
         </LandingContainer>
-        <Repositories />
         <Tools />
+        <Repositories />
         <Contact />
         <Footer />
       </div>
