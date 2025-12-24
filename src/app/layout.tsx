@@ -1,5 +1,6 @@
 import '@/styles/globals.css';
 
+import { Analytics } from '@vercel/analytics/next';
 import { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import { FC, PropsWithChildren } from 'react';
@@ -30,6 +31,7 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) => {
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>{children}</Providers>
+        <Analytics />
       </body>
     </html>
   );
