@@ -1,6 +1,7 @@
 import '@/styles/globals.css';
 
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 import { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import { FC, PropsWithChildren } from 'react';
@@ -32,6 +33,7 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) => {
       <body className={inter.className}>
         <Providers>{children}</Providers>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
